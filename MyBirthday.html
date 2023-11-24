@@ -1,0 +1,77 @@
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" type="image/png" href="./birthdayCake.png" />
+    <title>Happy Birthday</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="../config.js"></script>
+    <script>
+      var played = false;
+      var audio = new Audio("music.mp3");
+
+      window.onload = () => {
+        document.getElementById("name").innerHTML = config["ten"];
+      }
+
+      if (document.location.search.match(/type=embed/gi)) {
+        window.parent.postMessage("resize", "*");
+      }
+
+      function showMessage() {
+        if (!played) {
+          audio.play();
+        }
+        swal({
+          title: config["tuaDe"],
+          text: config["noiDung"],
+          button: {
+            text: "❤️️",
+          },
+        });
+      }
+    </script>
+  </head>
+
+  <body>
+    <link
+      href="https://fonts.googleapis.com/css?family=Wendy+One"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <div class="pyro">
+      <div class="before"></div>
+      <div class="after"></div>
+      <div class="container">
+        <!-- 2. Dòng chữ Happy Birthday
+                Nếu bạn muốn thêm chữ vào thì phải thay đổi css tương ứng cho nó -->
+        <div class="balloon">
+          <div><span>H</span></div>
+          <div><span>A</span></div>
+          <div><span>P</span></div>
+          <div><span>P</span></div>
+          <div><span>Y</span></div>
+          <div><span>B</span></div>
+          <div><span>I</span></div>
+          <div><span>R</span></div>
+          <div><span>T</span></div>
+          <div><span>H</span></div>
+          <div><span>D</span></div>
+          <div><span>A</span></div>
+          <div><span>Y</span></div>
+        </div>
+        <div class="avatar">
+          <!-- 3. Avatar của người bạn muốn gởi lời chúc -->
+          <img
+            src="./MyAvatar.jpg"
+            alt=""
+            class="avatar__img"
+            onclick="showMessage()"
+          />
+          <!-- 4. Tên của người đó -->
+          <h1 onclick="showMessage()" class="avatar__title" id="name">Ngọc Tiến</h1>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  </body>
+</html>
